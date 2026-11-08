@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ranking · Academia Mayoral</title>
+  <meta name="description" content="Academia Mayoral: explicaciones y ejercicios-juego de Lengua, Matemáticas, Historia, Física y Química para ESO y Bachillerato.">
+  <meta name="theme-color" content="#F6FAF8">
+  <script>try{var t=JSON.parse(localStorage.getItem("am_theme"));if(t==="oscuro"||t==="calido")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261108">
+  <link rel="stylesheet" href="assets/css/coleccion.css?v=20261108">
+  <script defer src="assets/js/data.js?v=20261108"></script>
+  <script defer src="assets/js/avatars.js?v=20261108"></script>
+  <script defer src="assets/js/core.js?v=20261108"></script>
+  <script defer src="assets/js/pages.js?v=20261108"></script>
+</head>
+<body data-page="ranking">
+  <div id="am-top"></div>
+  <main id="app">
+    <section class="page-head">
+      <div class="container">
+        <nav class="crumbs" aria-label="Migas de pan"><a href="index.html">Inicio</a><span>Ranking</span></nav>
+        <span class="eyebrow">Ranking y ligas</span>
+        <h1>¿Quién lo está petando esta semana?</h1>
+        <p class="lead">Cada ejercicio suma XP. Compite en el ranking general, con los de tu curso o solo con tus amigos. El ranking semanal se reinicia cada lunes.</p>
+      </div>
+    </section>
+    <section class="section" style="padding-top:0">
+      <div class="container gam-grid" style="grid-template-columns:1.4fr 1fr">
+        <div class="card">
+          <div class="demo-note hidden" id="demoNote">Modo demo: estás viendo un ranking de ejemplo. Con la web publicada en Hostinger verás a los alumnos reales.</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between">
+            <div class="tabs" role="tablist" aria-label="Periodo"><button class="active" data-period="week">Esta semana</button><button data-period="all">Total</button></div>
+            <div class="tabs" role="tablist" aria-label="Ámbito"><button class="active" data-scope="global">Global</button><button data-scope="course">Mi curso</button><button data-scope="friends">Amigos</button></div>
+          </div>
+          <ol class="board" id="board"></ol>
+        </div>
+        <div style="display:grid;gap:18px;align-content:start">
+          <div class="card" id="myLeague"></div>
+          <form class="card form" id="friendForm">
+            <h3 style="margin:0">Añadir amigo</h3>
+            <p class="muted" style="margin:0;font-size:.92rem">Pídele a tu amigo su código (lo tiene en su perfil) y escríbelo aquí.</p>
+            <div class="field"><label for="fCode">Código de amigo</label><input id="fCode" name="code" placeholder="AM-XXXXX" maxlength="12" autocomplete="off" style="text-transform:uppercase"></div>
+            <button class="btn btn-primary" type="submit">Añadir</button>
+          </form>
+          <div class="card"><h3>Ligas</h3><p class="muted" style="font-size:.92rem">Tu liga depende de los XP que consigues durante la semana.</p><div class="leagues" id="ranLeagues" style="margin-bottom:0"></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="am-footer"></div>
+</body>
+</html>

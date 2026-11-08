@@ -1,0 +1,15 @@
+# --- Secretos: NUNCA subir a GitHub ---
+# La configuración real (base de datos, Stripe) vive solo en el servidor.
+# En el repositorio está la plantilla: public_html/api/config.sample.php
+public_html/api/config.php
+
+# --- Herramientas locales ---
+.claude/
+.vscode/
+.idea/
+
+# --- Sistema ---
+Thumbs.db
+desktop.ini
+.DS_Store
+*.log

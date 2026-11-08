@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi cuenta · Academia Mayoral</title>
+  <meta name="description" content="Academia Mayoral: explicaciones y ejercicios-juego de Lengua, Matemáticas, Historia, Física y Química para ESO y Bachillerato.">
+  <meta name="theme-color" content="#F6FAF8">
+  <script>try{var t=JSON.parse(localStorage.getItem("am_theme"));if(t==="oscuro"||t==="calido")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261108">
+  <link rel="stylesheet" href="assets/css/coleccion.css?v=20261108">
+  <script defer src="assets/js/data.js?v=20261108"></script>
+  <script defer src="assets/js/avatars.js?v=20261108"></script>
+  <script defer src="assets/js/core.js?v=20261108"></script>
+  <script defer src="assets/js/pages.js?v=20261108"></script>
+</head>
+<body data-page="cuenta">
+  <div id="am-top"></div>
+  <main id="app">
+    <section class="page-head">
+      <div class="container">
+        <nav class="crumbs" aria-label="Migas de pan"><a href="index.html">Inicio</a><span>Mi cuenta</span></nav>
+        <div class="demo-note hidden" id="demoNote">Modo demo: la cuenta y tus puntos se guardan solo en este navegador. Con la web publicada en Hostinger se guardan en el servidor.</div>
+      </div>
+    </section>
+
+    <!-- Invitado: entrar / registrarse -->
+    <section class="section" id="guestView" style="padding-top:0">
+      <div class="container auth-wrap">
+        <div>
+          <span class="eyebrow">Tu perfil</span>
+          <h1 style="font-size:clamp(2rem,4vw,3rem)">Guarda tus puntos y compite con tus amigos</h1>
+          <p class="lead">Con tu perfil gratuito acumulas XP, mantienes tu racha, desbloqueas logros y apareces en el ranking.</p>
+          <ul class="contact-list">
+            <li><span class="ci">🕶️</span> En el ranking solo se ve tu apodo, nunca tu nombre ni tu email.</li>
+            <li><span class="ci">👨‍👩‍👧</span> Si tienes menos de 14 años, tu padre, madre o tutor tendrá que confirmar tu cuenta por email.</li>
+            <li><span class="ci">🔒</span> Tu contraseña se guarda cifrada.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="tabs" role="tablist"><button class="active" data-tab="login">Entrar</button><button data-tab="register">Crear perfil</button></div>
+          <form class="form" id="loginForm">
+            <div class="field"><label for="lLogin">Apodo o email</label><input id="lLogin" name="login" required autocomplete="username"></div>
+            <div class="field"><label for="lPass">Contraseña</label><input id="lPass" name="password" type="password" required autocomplete="current-password"></div>
+            <div class="form-msg" role="status"></div>
+            <button class="btn btn-primary" type="submit">Entrar</button>
+          </form>
+          <form class="form hidden" id="registerForm">
+            <div class="row">
+              <div class="field"><label for="rNick">Apodo (público)</label><input id="rNick" name="nick" required minlength="3" maxlength="20" pattern="[A-Za-z0-9_.ÁÉÍÓÚáéíóúÑñ]{3,20}" title="3 a 20 letras, números, punto o guion bajo" autocomplete="nickname"></div>
+              <div class="field"><label for="rCourse">Curso</label><select id="rCourse" name="course"></select></div>
+            </div>
+            <div class="field"><label for="rEmail">Tu email</label><input id="rEmail" name="email" type="email" required maxlength="120" autocomplete="email"></div>
+            <div class="row">
+              <div class="field"><label for="rPass">Contraseña (mín. 8)</label><input id="rPass" name="password" type="password" required minlength="8" autocomplete="new-password"></div>
+              <div class="field"><label for="rBirth">Fecha de nacimiento</label><input id="rBirth" name="birthdate" type="date" required></div>
+            </div>
+            <div class="field hidden" id="parentField"><label for="rParent">Email de tu padre, madre o tutor</label><input id="rParent" name="parent_email" type="email" maxlength="120"><small class="muted">Le enviaremos un email para que autorice tu cuenta (obligatorio por ley para menores de 14 años).</small></div>
+            <label class="check"><input type="checkbox" name="privacy" required> <span>Acepto la <a href="legal.html#privacidad">política de privacidad</a> y las <a href="legal.html#aviso">condiciones de uso</a>.</span></label>
+            <div class="form-msg" role="status"></div>
+            <button class="btn btn-primary" type="submit">Crear mi perfil</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Perfil -->
+    <section class="section hidden" id="profileView" style="padding-top:0">
+      <div class="container">
+        <!-- Panel personal con el fondo elegido -->
+        <div class="panel-hero" id="pHero">
+          <div class="ph-main">
+            <span id="pAvatarBox"></span>
+            <div class="ph-text">
+              <span class="ph-title" id="pTitle"></span>
+              <h1 id="pNick"></h1>
+              <p id="pMeta"></p>
+            </div>
+          </div>
+          <div class="ph-side">
+            <div class="max-badge" id="pMaxLeague"></div>
+            <div class="ph-actions"><a class="btn btn-sm ph-btn" href="ranking.html">Ver ranking</a><button class="btn btn-sm ph-btn" id="logoutBtn">Cerrar sesión</button></div>
+          </div>
+        </div>
+        <div class="kpis" id="pKpis"></div>
+
+        <!-- Cofres y colección de criaturas -->
+        <div class="grid-2 profile-grid" style="margin-bottom:18px">
+          <div class="card chest-card" id="cofres">
+            <h3>🎁 Cofres</h3>
+            <div id="pChests"></div>
+          </div>
+          <div class="card">
+            <h3>🐣 Cómo evolucionan las criaturas</h3>
+            <p class="muted" style="font-size:.92rem">Tu criatura evoluciona según la <b>liga más alta que alcances este mes</b>. El día 1 de cada mes vuelve a empezar como huevo.</p>
+            <div class="evo-steps" id="pEvo"></div>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom:18px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 style="margin:0">Mi colección</h3><span class="muted" id="pCollCount" style="font-size:.9rem"></span></div>
+          <p class="muted" style="font-size:.9rem;margin:6px 0 16px">Toca una criatura que tengas para usarla como avatar en el ranking y en tu perfil.</p>
+          <div class="collection" id="pCollection"></div>
+        </div>
+        <div class="grid-2 profile-grid" style="margin-bottom:18px">
+          <div class="card"><h3>🏷️ Mi título</h3><p class="muted" style="font-size:.9rem">Aparece junto a tu nombre en los rankings. Desbloquea más consiguiendo logros.</p><div class="title-list" id="pTitles"></div></div>
+          <div class="card"><h3>🎨 Fondo del panel</h3><p class="muted" style="font-size:.9rem">Personaliza tu panel personal. Algunos se desbloquean subiendo de liga o con Plus.</p><div class="theme-grid" id="pThemes"></div></div>
+        </div>
+        <div class="gam-grid">
+          <div class="card"><h3>Logros</h3><div class="badges" id="pBadges"></div></div>
+          <div style="display:grid;gap:18px;align-content:start">
+            <div class="card"><h3>Código de amigo</h3><p class="muted" style="font-size:.92rem">Compártelo para que tus amigos te añadan y competir en vuestro propio ranking.</p><span class="code-box"><span id="pCode"></span> <button class="btn btn-ghost btn-sm" id="copyCode2">Copiar</button></span></div>
+            <div class="card form"><h3 style="margin:0">Mi curso</h3><div class="field"><label for="pCourse">Curso actual</label><select id="pCourse"></select></div></div>
+            <div class="card"><h3>Mayoral Plus</h3><div id="pPlus"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="am-footer"></div>
+</body>
+</html>

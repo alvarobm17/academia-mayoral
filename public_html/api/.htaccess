@@ -1,0 +1,5 @@
+# Protege la configuración y la librería interna
+<FilesMatch "^(config|config\.sample|lib)\.php$">
+  Require all denied
+</FilesMatch>
+Options -Indexes
