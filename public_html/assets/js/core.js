@@ -443,7 +443,8 @@
           if (t.indexOf("\\(") !== -1 || t.indexOf("\\[") !== -1) pending.push(el);
         });
       });
-      if (pending.length && !queued) { queued = true; requestAnimationFrame(flush); }
+      // setTimeout y no requestAnimationFrame: este último se congela en pestañas abiertas en segundo plano
+      if (pending.length && !queued) { queued = true; setTimeout(flush, 16); }
     }).observe(document.body, { childList: true, subtree: true });
     AM.math(document.body);
   }

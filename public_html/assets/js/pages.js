@@ -12,7 +12,7 @@
     if (loadContent.cache[key]) return loadContent.cache[key];
     return (loadContent.cache[key] = new Promise(function (res) {
       var s = document.createElement("script");
-      s.src = "assets/js/content/" + key + ".js?v=20261108";
+      s.src = "assets/js/content/" + key + ".js?v=20261108b";
       s.onload = res; s.onerror = res;
       document.head.appendChild(s);
     }));
